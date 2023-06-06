@@ -39,6 +39,8 @@
             background-color: #FFFFFF;
             border-radius: 20px;
             padding: 25px;
+            text-decoration: none;
+            color: #000000;
         }
     </style>
 </head>
@@ -104,24 +106,24 @@
         </nav>
 
         <div class="w-screen h-100 backgroud-desa">
-            <div class="container h-100 d-flex flex-column align-items-center" style="padding-top: 8%;">
+            <div class="container h-100 d-flex flex-column align-items-center" style="padding-top: 7%;">
                 <div class="text-center mb-5">
                     <h1 class="text-bold mb-4">Selamat Datang, {{ auth()->user()->name ?? 'Pengguna' }}</h1>
                     <p class="text-lg">Butuh pelayanan apa hari ini?</p>
                 </div>
-                <div class="w-100 d-flex justify-content-around align-items-center">
-                    <div class="layanan">
+                <div class="w-100 d-flex justify-content-around align-items-center mt-4">
+                    <a class="layanan" href="#">
                         <i class="fa fa-file-alt fa-6x"></i>
                         <p class="text-lg mt-4">Pengajuan Surat Pengantar</p>
-                    </div>
-                    <div class="layanan">
+                    </a>
+                    <a class="layanan" href="{{ route('antrian') }}">
                         <i class="fa fa-users fa-6x"></i>
                         <p class="text-lg mt-4">Ambil Antrian Pelayanan</p>
-                    </div>
-                    <div class="layanan">
+                    </a>
+                    <a class="layanan">
                         <i class="fa fa-chalkboard-teacher fa-6x"></i>
                         <p class="text-lg mt-4">Aduan Masyarakat Desa</p>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

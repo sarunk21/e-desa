@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // Controllers
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\User\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,11 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // User
 Route::middleware(['auth', 'user'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboardUser'])->name('dashboard.user');
+
+    // Antrian
+    Route::get('/antrian', [ServiceController::class, 'antrian'])->name('antrian');
+    Route::get('/antrian/{id}', [ServiceController::class, 'antrianDetail'])->name('antrian.detail');
+    Route::post('/antrian', [ServiceController::class, 'antrianStore'])->name('antrian.store');
 });
 
 // Admin
