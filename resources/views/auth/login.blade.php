@@ -1,11 +1,15 @@
 @extends('layouts.auth')
 
+@section('title', 'Login')
+
 @section('content')
     <div class="row min-h-screen align-items-center justify-content-between">
         <div class="col-7">
             <div class="container">
                 <div class="d-flex flex-column justify-content-center align-items-center mb-5">
-                    <img src="{{ asset('img/logo.png') }}" alt="Logo" class="img-md">
+                    <a href="{{ route('wellcome') }}" class="pointer-event">
+                        <img src="{{ asset('img/logo.png') }}" alt="Logo" class="img-md">
+                    </a>
                     <h1>Login</h1>
                 </div>
 
@@ -17,33 +21,46 @@
                     @endforeach
                 @endif
 
+                @if (session('status'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('status') }}
+                    </div>
+                @endif
+
                 <form method="POST" action="{{ route('login.user') }}">
                     @csrf
+
                     <div class="form-group">
                         <label for="nik" class="mb-4">NIK</label>
-                        <input type="text" class="form-control rounded-pill py-4 px-3 @error('nik') is-invalid @enderror" id="nik" name="nik" value="{{ old('nik') }}">
-                        @error('nik')
+                        <input type="text" class="form-control rounded-pill py-4 px-3 @if ($errors->has('nik')) is-invalid @endif" id="nik" name="nik" value="{{ old('nik') }}" autofocus>
+                        @if ($errors->has('nik'))
                             <div class="invalid-feedback">
-                                {{ $message }}
+                                {{ $errors->first('nik') }}
                             </div>
-                        @enderror
+                        @endif
                     </div>
+
                     <div class="form-group position-relative">
                         <label for="password" class="mb-4">Password</label>
                         <div class="input-group" id="show_hide_password">
-                            <input type="password" class="form-control rounded-pill py-4 px-3 @error('nik') is-invalid @enderror" id="password" name="password">
+                            <input type="password" class="form-control rounded-pill py-4 px-3 @if ($errors->has('password')) is-invalid @endif" id="password" name="password">
                             <div class="position-absolute right-midlle">
                                 <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                             </div>
                         </div>
-                        @error('password')
+                        @if ($errors->has('password'))
                             <div class="invalid-feedback">
-                                {{ $message }}
+                                {{ $errors->first('password') }}
                             </div>
-                        @enderror
+                        @endif
                     </div>
+
                     <div class="d-flex w-100 justify-content-center mt-5">
                         <button type="submit" class="btn btn-primary btn-green-pastel px-5 py-2 rounded-pill">Login</button>
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-4">
+                        <a href="{{ route('register') }}">Belum punya akun? Daftar</a>
                     </div>
                 </form>
             </div>
