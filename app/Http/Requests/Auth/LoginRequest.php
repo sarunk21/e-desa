@@ -11,7 +11,7 @@ class LoginRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,21 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nik' => 'required|string',
+            'password' => 'required|string',
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'nik.required' => 'NIK tidak boleh kosong',
+            'password.required' => 'Password tidak boleh kosong',
         ];
     }
 }
