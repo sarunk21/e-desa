@@ -102,6 +102,7 @@
                     </div>
 
                     <div class="d-flex w-100 justify-content-center mt-5">
+                        <a href="{{ route('wellcome') }}" class="btn btn-outline-secondary px-5 py-2 rounded-pill mr-3">Beranda</a>
                         <button type="submit" class="btn btn-primary btn-green-pastel px-5 py-2 rounded-pill">Login</button>
                     </div>
                 </form>
@@ -112,3 +113,19 @@
         </div>
     </div>
 @endsection
+
+@push('styles')
+    <style>
+        .btn-green-pastel {
+            background-color: #51839C;
+            border-color: #51839C;
+            color: #fff;
+        }
+
+        .btn-green-pastel:hover {
+            background-color: #3B6C81;
+            border-color: #3B6C81;
+            color: #fff;
+        }
+    </style>
+@endpush

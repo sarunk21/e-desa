@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // Controllers
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GuestController;
 use App\Http\Controllers\User\ServiceController;
 
 /*
@@ -18,9 +19,9 @@ use App\Http\Controllers\User\ServiceController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('wellcome');
+// Guest
+Route::get('/', [GuestController::class, 'wellcome'])->name('wellcome');
+Route::get('/profile', [GuestController::class, 'profile'])->name('profile');
 
 // Auth
 Route::get('/login', [AuthController::class, 'login'])->name('login');
