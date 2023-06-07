@@ -37,6 +37,11 @@ Route::middleware(['auth', 'user'])->group(function () {
     Route::get('/antrian', [ServiceController::class, 'antrian'])->name('antrian');
     Route::get('/antrian/{id}', [ServiceController::class, 'antrianDetail'])->name('antrian.detail');
     Route::post('/antrian', [ServiceController::class, 'antrianStore'])->name('antrian.store');
+
+    // Pengajuan
+    Route::get('/pengajuan', [ServiceController::class, 'pengajuan'])->name('pengajuan');
+    Route::get('/pengajuan/{id}', [ServiceController::class, 'pengajuanDetail'])->name('pengajuan.detail');
+    Route::post('/pengajuan', [ServiceController::class, 'pengajuanStore'])->name('pengajuan.store');
 });
 
 // Admin

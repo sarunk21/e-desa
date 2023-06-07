@@ -112,7 +112,7 @@
                     <p class="text-lg">Butuh pelayanan apa hari ini?</p>
                 </div>
                 <div class="w-100 d-flex justify-content-around align-items-center mt-4">
-                    <a class="layanan" href="#">
+                    <a class="layanan" href="{{ route('pengajuan') }}">
                         <i class="fa fa-file-alt fa-6x"></i>
                         <p class="text-lg mt-4">Pengajuan Surat Pengantar</p>
                     </a>
