@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Admin\AdminDesaController;
 use Illuminate\Support\Facades\Route;
 
 // Controllers
@@ -48,4 +49,12 @@ Route::middleware(['auth', 'user'])->group(function () {
 // Admin
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboardAdmin'])->name('dashboard.admin');
+
+    // Admin Desa
+    Route::get('/admin-desa', [AdminDesaController::class, 'index'])->name('admin.desa.index');
+    Route::post('/admin-desa', [AdminDesaController::class, 'store'])->name('admin.desa.store');
+    Route::get('/admin-desa/{id}', [AdminDesaController::class, 'show'])->name('admin.desa.show');
+    Route::get('/admin-desa/{id}/edit', [AdminDesaController::class, 'edit'])->name('admin.desa.edit');
+    Route::put('/admin-desa/{id}', [AdminDesaController::class, 'update'])->name('admin.desa.update');
+    Route::delete('/admin-desa/{id}', [AdminDesaController::class, 'destroy'])->name('admin.desa.destroy');
 });

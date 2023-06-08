@@ -18,7 +18,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-header">Admin</li>
                 <li class="nav-item">
-                    <a href="{{ route('dashboard.admin') }}" class="nav-link">
+                    <a href="{{ route('dashboard.admin') }}" class="nav-link @if(request()->is('admin/dashboard*')) active @endif">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -30,6 +30,14 @@
                         <i class="nav-icon fas fa-university"></i>
                         <p>
                             Profile Desa
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.desa.index') }}" class="nav-link @if(request()->is('admin/admin-desa*')) active @endif">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Admin Desa
                         </p>
                     </a>
                 </li>
