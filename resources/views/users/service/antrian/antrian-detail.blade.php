@@ -31,7 +31,8 @@
             </div>
 
             <div class="d-flex w-100 justify-content-end mt-5">
-                <a href="{{ route('antrian') }}" class="btn btn-outline-secondary px-5 py-2 rounded-pill mr-3">Daftar Antrian</a>
+                <a href="{{ route('dashboard.user') }}" class="btn btn-outline-secondary px-5 py-2 rounded-pill mr-3">Beranda</a>
+                <a href="{{ route('antrian') }}" class="btn btn-green-pastel text-white px-5 py-2 rounded-pill mr-3">Daftar Antrian</a>
             </div>
         </form>
     </div>

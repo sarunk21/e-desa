@@ -5,9 +5,12 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 
 use App\Models\Antrian;
+use App\Models\SuratPengantar;
 use App\Models\JenisPelayanan;
 
 use App\Http\Requests\User\Antrian\StoreAntrianRequest;
+use App\Http\Requests\User\Pengajuan\StorePengajuanRequest;
+use App\Models\Notifikasi;
 
 class ServiceController extends Controller
 {
@@ -29,6 +32,11 @@ class ServiceController extends Controller
             return redirect()->route('dashboard.user');
         }
 
+        // Update status notifikasi
+        if (request('is_read') == 2) {
+            Notifikasi::where('link_notifikasi', $id)->update(['status_notifikasi' => Notifikasi::STATUS_READ]);
+        }
+
         return view('users.service.antrian.antrian-detail', compact('antrian'));
     }
 
@@ -45,6 +53,14 @@ class ServiceController extends Controller
         }
 
         $antrian = Antrian::create($data);
+        Notifikasi::create([
+            'user_id' => $data['user_id'],
+            'status_notifikasi' => Notifikasi::STATUS_UNREAD,
+            'judul_notifikasi' => 'Antrian berhasil dibuat',
+            'isi_notifikasi' => 'Antrian anda berhasil dibuat, silahkan menunggu panggilan selanjutnya',
+            'link_notifikasi' => $antrian->id,
+            'tipe_notifikasi' => Notifikasi::TYPE_ANTRIAN
+        ]);
 
         return redirect()->route('antrian.detail', $antrian->id);
     }
@@ -52,16 +68,48 @@ class ServiceController extends Controller
     // Pengajuan
     public function pengajuan()
     {
-        return view('users.service.pengajuan.pengajuan');
+        $pelayanan = JenisPelayanan::all();
+
+        return view('users.service.pengajuan.pengajuan', compact('pelayanan'));
     }
 
     public function pengajuanDetail($id)
     {
-        return view('users.service.pengajuan.pengajuan-detail');
+        $pengajuan = SuratPengantar::findOrFail($id);
+
+        // Cek jika pengajuan milik user
+        if ($pengajuan->user_id != auth()->user()->id) {
+            return redirect()->route('dashboard.user');
+        }
+
+        // Update status notifikasi
+        if (request('is_read') == 2) {
+            Notifikasi::where('link_notifikasi', $id)->update(['status_notifikasi' => Notifikasi::STATUS_READ]);
+        }
+
+        return view('users.service.pengajuan.pengajuan-detail', compact('pengajuan'));
     }
 
-    public function pengajuanStore()
+    public function pengajuanStore(StorePengajuanRequest $request)
     {
-        return redirect()->route('pengajuan.detail', 1);
+        $data = $request->validated();
+
+        // Upload file to storage.
+        $file_name = $request->file('file_berkas')->store('pengajuan');
+
+        $data['file_berkas'] = $file_name;
+        $data['original_name_berkas'] = $request->file('file_berkas')->getClientOriginalName();
+
+        $pengajuan = SuratPengantar::create($data);
+        Notifikasi::create([
+            'user_id' => $data['user_id'],
+            'status_notifikasi' => Notifikasi::STATUS_UNREAD,
+            'judul_notifikasi' => 'Pengajuan berhasil dibuat',
+            'isi_notifikasi' => 'Pengajuan anda berhasil dibuat, silahkan menunggu proses selanjutnya',
+            'link_notifikasi' => $pengajuan->id,
+            'tipe_notifikasi' => Notifikasi::TYPE_PENGAJUAN
+        ]);
+
+        return redirect()->route('pengajuan.detail', $pengajuan->id);
     }
 }

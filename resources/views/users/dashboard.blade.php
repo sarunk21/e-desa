@@ -3,12 +3,12 @@
 @section('title', '| Dashboard')
 
 @section('content')
-    <div class="h-screen overflow-hidden">
+    <div class="h-screen position-relative">
 
         @include('layouts.navbar')
 
-        <div class="w-screen h-100 backgroud-desa">
-            <div class="container h-100 d-flex flex-column align-items-center" style="padding-top: 7%;">
+        <div class="w-100 h-100 backgroud-desa position-absolute">
+            <div class="container h-100 d-flex flex-column align-items-center justify-content-center">
                 <div class="text-center mb-5">
                     <h1 class="text-bold mb-4">Selamat Datang, {{ auth()->user()->name ?? 'Pengguna' }}</h1>
                     <p class="text-lg">Butuh pelayanan apa hari ini?</p>
@@ -46,7 +46,8 @@
         .backgroud-desa {
             background-image: url("{{ asset('img/banner-user-dashboard.png') }}");
             background-size: cover;
-            background-position: center top 70%;
+            top: 0;
+            z-index: 1;
         }
 
         .layanan {

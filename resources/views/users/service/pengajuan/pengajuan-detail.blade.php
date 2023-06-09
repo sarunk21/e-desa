@@ -1,87 +1,52 @@
 @extends('layouts.service')
 
-@section('title', 'Daftar Surat Pengantar')
+@section('title', 'Detail Surat Pengantar')
 
-@section('judul', 'Pengajuan Surat Pengantar')
+@section('judul', 'Detail Pengajuan Surat Pengantar')
 
 @section('content')
 
     <div class="p-5">
 
-        <h3 class="mb-4 font-weight-bold">Data yang Anda Ajukan </h3>
+        <h3 class="font-weight-bold">Data yang Anda Ajukan sudah Masuk ke dalam Sistem Kami</h3>
+        <p class="mb-4">Periksa Notifikasi anda secara berkala untuk meninjau status berkas yang anda ajukan</p>
 
         <div class="form-group">
             <label for="nik" class="mb-3">NIK</label>
-            <input type="text" class="form-control form-control-lg rounded-pill text-md @if ($errors->has('nik')) is-invalid @endif" id="nik" name="nik" value="{{ old('nik') }}" placeholder="Masukkan NIK anda">
-            @if ($errors->has('nik'))
-                <div class="invalid-feedback">
-                    {{ $errors->first('nik') }}
-                </div>
-            @endif
+            <input type="text" class="form-control form-control-lg rounded-pill text-md" id="nik" name="nik" value="{{ $pengajuan->user->nik }}" placeholder="Masukkan NIK anda" readonly>
         </div>
 
         <div class="form-group">
             <label for="nama" class="mb-3">Nama Lengkap</label>
-            <input type="text" class="form-control form-control-lg rounded-pill text-md @if ($errors->has('nama')) is-invalid @endif" id="nama" name="nama" value="{{ old('nama') }}" autofocus placeholder="Masukkan nama lengkap anda">
-            @if ($errors->has('nama'))
-                <div class="invalid-feedback">
-                    {{ $errors->first('nama') }}
-                </div>
-            @endif
+            <input type="text" class="form-control form-control-lg rounded-pill text-md" id="nama" name="nama" value="{{ $pengajuan->user->name }}" placeholder="Masukkan nama lengkap anda" readonly>
         </div>
 
         <div class="form-group">
             <label for="tanggal" class="mb-3">Tanggal Pengajuan</label>
-            <input type="date" class="form-control form-control-lg rounded-pill text-md @if ($errors->has('tanggal')) is-invalid @endif" id="tanggal" name="tanggal" value="{{ old('tanggal') }}" placeholder="Masukkan tanggal anda">
-            @if ($errors->has('tanggal'))
-                <div class="invalid-feedback">
-                    {{ $errors->first('tanggal') }}
-                </div>
-            @endif
+            <input type="date" class="form-control form-control-lg rounded-pill text-md" id="tanggal" name="tanggal" value="{{ $pengajuan->tanggal }}" readonly>
         </div>
 
         <div class="form-group">
             <label for="layanan" class="mb-3">Jenis Layanan</label>
-            <select class="form-control form-control-lg rounded-pill text-md @if ($errors->has('layanan')) is-invalid @endif" id="layanan" name="layanan">
-                <option value="" selected disabled>Pilih layanan</option>
-                <option value="1">Pembuatan KPT</option>
-                <option value="2">Pembuatan Kartu Keluarga</option>
-                <option value="3">Lain - Lain</option>
-            </select>
-            @if ($errors->has('layanan'))
-                <div class="invalid-feedback">
-                    {{ $errors->first('layanan') }}
-                </div>
-            @endif
+            <input type="text" class="form-control form-control-lg rounded-pill text-md" id="layanan" name="layanan" value="{{ $pengajuan->jenisPelayanan->nama_pelayanan }}" readonly>
         </div>
 
         <div class="form-group">
-            <label for="jenis_berkas" class="mb-3">Jenis Berkas</label>
-            <select class="form-control form-control-lg rounded-pill text-md @if ($errors->has('jenis_berkas')) is-invalid @endif" id="jenis_berkas" name="jenis_berkas">
-                <option value="" selected disabled>Pilih Berkas</option>
-                <option value="1">Kartu Keluarga</option>
-                <option value="2">KTP/SIM/Kartu Pelajar</option>
-            </select>
-            @if ($errors->has('jenis_berkas'))
-                <div class="invalid-feedback">
-                    {{ $errors->first('jenis_berkas') }}
-                </div>
-            @endif
+            <label for="jenis_berkas" class="mb-3">Jenis Berkas Pendukung</label>
+            <input type="text" class="form-control form-control-lg rounded-pill text-md" id="jenis_berkas" name="jenis_berkas" value="{{ $pengajuan->jenis_berkas == 1 ? 'Kartu Keluarga' : 'KTP/SIM/Kartu Pelajar' }}" readonly>
         </div>
 
         <div class="form-group">
-            <label for="berkas_pendukung" class="mb-3">Upload File</label>
-            <input type="file" class="form-control form-control-lg rounded-pill text-md @if ($errors->has('berkas_pendukung')) is-invalid @endif" id="berkas_pendukung" name="berkas_pendukung" value="{{ old('berkas_pendukung') }}"
-                placeholder="Masukkan file anda">
-            @if ($errors->has('berkas_pendukung'))
-                <div class="invalid-feedback">
-                    {{ $errors->first('berkas_pendukung') }}
-                </div>
-            @endif
+            <label for="file_berkas" class="mb-3">Upload File Pendukung</label>
+            <div class="w-100 px-4 py-3 d-flex" style="background-color: #e9ecef; border: 1px solid #ced4da; border-radius: 15px;">
+                <img src="{{ asset('storage/' . $pengajuan->file_berkas) }}" alt="Berkas Pendukung" class="img-fluid" style="height: 150px; border-radius: 15px; object-fit: cover;">
+            </div>
         </div>
 
-        <h3 class="mt-4 font-weight-bold">Data yang Anda Ajukan sudah Masuk ke dalam Sistem Kami</h3>
-        <p>Periksa Notifikasi anda secara berkala untuk meninjau status berkas yang anda ajukan</p>
+        <div class="form-group">
+            <label for="status" class="mb-3">Status Pengajuan</label>
+            <input type="text" class="form-control form-control-lg rounded-pill text-md" id="status" name="status" value="{{ $pengajuan->status }}" readonly>
+        </div>
 
         <div class="d-flex w-100 justify-content-end mt-5">
             <a href="{{ route('dashboard.user') }}" class="btn btn-outline-secondary px-5 py-2 rounded-pill mr-3">Beranda</a>

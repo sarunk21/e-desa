@@ -10,13 +10,19 @@ class Notifikasi extends Model
 
     protected $fillable = [
         'user_id',
-        'jenis_pelayanan_id',
+        'status_notifikasi',
+        'judul_notifikasi',
         'isi_notifikasi',
-        'status'
+        'link_notifikasi',
+        'tipe_notifikasi'
     ];
 
     const STATUS_UNREAD = 1;
     const STATUS_READ = 2;
+
+    const TYPE_ANTRIAN = 1;
+    const TYPE_PENGAJUAN = 2;
+    const TYPE_PENGADUAN = 3;
 
     public function user()
     {
@@ -26,5 +32,11 @@ class Notifikasi extends Model
     public function jenisPelayanan()
     {
         return $this->belongsTo(JenisPelayanan::class);
+    }
+
+    public function getNotifikasiLinkAttribute()
+    {
+        if ($this->tipe_notifikasi == self::TYPE_ANTRIAN) return route('antrian.detail', ['id' => $this->link_notifikasi, 'is_read' => 2]);
+        if ($this->tipe_notifikasi == self::TYPE_PENGAJUAN) return route('pengajuan.detail', ['id' => $this->link_notifikasi, 'is_read' => 2]);
     }
 }

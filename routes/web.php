@@ -34,6 +34,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // User
 Route::middleware(['auth', 'user'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboardUser'])->name('dashboard.user');
+    Route::get('/notifikasi', [DashboardController::class, 'notifkasi'])->name('notifikasi');
 
     // Antrian
     Route::get('/antrian', [ServiceController::class, 'antrian'])->name('antrian');

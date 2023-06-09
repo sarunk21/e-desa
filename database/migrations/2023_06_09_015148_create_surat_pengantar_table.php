@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('jenis_pelayanan_id')->constrained('jenis_pelayanan');
             $table->string('jenis_berkas');
             $table->string('file_berkas');
+            $table->string('orginal_name_berkas');
             $table->integer('status_pengajuan')->default(1);
             $table->timestamps();
         });

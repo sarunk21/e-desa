@@ -3,12 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Notifikasi;
 
 class DashboardController extends Controller
 {
     public function dashboardUser()
     {
-        return view('users.dashboard');
+        $jumlah_notifikasi = Notifikasi::where('user_id', auth()->user()->id)->where('status_notifikasi', Notifikasi::STATUS_UNREAD)->count();
+
+        return view('users.dashboard', compact('jumlah_notifikasi'));
+    }
+
+    public  static function notifkasi()
+    {
+        $notifikasi = Notifikasi::where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->get();
+
+        return view('users.notifikasi', compact('notifikasi'));
     }
 
     public function dashboardAdmin()

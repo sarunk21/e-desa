@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light py-4">
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-4" style="z-index: 2;">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="{{ route('wellcome') }}">
             <img src="{{ asset('img/logo.png') }}" class="d-inline-block" width="50" height="50" alt="">
@@ -39,7 +39,7 @@
                         </a>
                         <div class="dropdown-menu">
                             @if (Request::is('dashboard'))
-                                <a class="dropdown-item" href="#">Notifikasi</a>
+                                <a class="dropdown-item" href="{{ route('notifikasi') }}">Notifikasi <span class="badge badge-danger">{{ $jumlah_notifikasi }}</span></a>
                             @else
                                 <a class="dropdown-item" href="{{ route('dashboard.user') }}">Dashboard</a>
                             @endif
