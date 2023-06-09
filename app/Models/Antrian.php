@@ -10,7 +10,8 @@ class Antrian extends Model
 
     protected $fillable = [
         'user_id',
-        'jenis_pelayanan_id'
+        'jenis_pelayanan_id',
+        'no_antrian',
     ];
 
     public function user()

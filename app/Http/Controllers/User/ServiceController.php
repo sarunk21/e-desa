@@ -4,22 +4,49 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 
+use App\Models\Antrian;
+use App\Models\JenisPelayanan;
+
+use App\Http\Requests\User\Antrian\StoreAntrianRequest;
+
 class ServiceController extends Controller
 {
     // Antrian
     public function antrian()
     {
-        return view('users.service.antrian.antrian');
+        $pelayanan = JenisPelayanan::all();
+        $jumlah_antrian = Antrian::where('created_at', date('Y-m-d'))->count();
+
+        return view('users.service.antrian.antrian', compact('pelayanan', 'jumlah_antrian'));
     }
 
     public function antrianDetail($id)
     {
-        return view('users.service.antrian.antrian');
+        $antrian = Antrian::findOrFail($id);
+
+        // Cek jika antrian milik user
+        if ($antrian->user_id != auth()->user()->id) {
+            return redirect()->route('dashboard.user');
+        }
+
+        return view('users.service.antrian.antrian-detail', compact('antrian'));
     }
 
-    public function antrianStore()
+    public function antrianStore(StoreAntrianRequest $request)
     {
-        return redirect()->route('antrian.detail', 1);
+        $data = $request->validated();
+
+        // Cek apakah sudah penuh
+        $jumlah_antrian = Antrian::where('created_at', date('Y-m-d'))->count();
+        $data['no_antrian'] = $jumlah_antrian + 1;
+
+        if ($jumlah_antrian >= 20) {
+            return redirect()->back()->with('error', 'Antrian semua pelayanan sudah penuh, silahkan coba lagi besok');
+        }
+
+        $antrian = Antrian::create($data);
+
+        return redirect()->route('antrian.detail', $antrian->id);
     }
 
     // Pengajuan
