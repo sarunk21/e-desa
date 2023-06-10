@@ -51,7 +51,7 @@
                 </li>
                 <li class="nav-header">Layanan</li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('admin.pengajuan.index') }}" class="nav-link @if (request()->is('admin/pengajuan*')) active @endif">
                         <i class="nav-icon fas fa-envelope"></i>
                         <p>
                             Pengajuan Surat

@@ -23,7 +23,7 @@
 
         <div class="form-group">
             <label for="tanggal" class="mb-3">Tanggal Pengajuan</label>
-            <input type="date" class="form-control form-control-lg rounded-pill text-md" id="tanggal" name="tanggal" value="{{ $pengajuan->tanggal }}" readonly>
+            <input type="date" class="form-control form-control-lg rounded-pill text-md" id="tanggal" name="tanggal" value="{{ $pengajuan->created_at->format('Y-m-d') }}" readonly>
         </div>
 
         <div class="form-group">
@@ -45,12 +45,13 @@
 
         <div class="form-group">
             <label for="status" class="mb-3">Status Pengajuan</label>
-            <input type="text" class="form-control form-control-lg rounded-pill text-md" id="status" name="status" value="{{ $pengajuan->status }}" readonly>
+            <input type="text" class="form-control form-control-lg rounded-pill text-md" id="status" name="status"
+                value="@if ($pengajuan->status_pengajuan == 1) Menunggu Verifikasi @elseif($pengajuan->status_pengajuan == 2) Verifikasi Berhasil @elseif($pengajuan->status_pengajuan == 3) Verifikasi Gagal @else Selesai @endif" readonly>
         </div>
 
         <div class="d-flex w-100 justify-content-end mt-5">
             <a href="{{ route('dashboard.user') }}" class="btn btn-outline-secondary px-5 py-2 rounded-pill mr-3">Beranda</a>
-            <button type="submit" class="btn btn-primary btn-green-pastel px-5 py-2 rounded-pill">Notifikasi</button>
+            <a href="{{ route('notifikasi') }}" class="btn btn-primary btn-green-pastel px-5 py-2 rounded-pill">Notifikasi</a>
         </div>
 
     </div>

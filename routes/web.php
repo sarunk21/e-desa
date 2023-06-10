@@ -72,4 +72,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     // Layanan
     // --- Antrian
     Route::get('/antrian', [AdminServiceController::class, 'antrian'])->name('admin.antrian.index');
+
+    // --- Pengajuan
+    Route::get('/pengajuan', [AdminServiceController::class, 'pengajuan'])->name('admin.pengajuan.index');
+    Route::get('/pengajuan/{id}', [AdminServiceController::class, 'pengajuanDetail'])->name('admin.pengajuan.show');
+    Route::put('/pengajuan/{id}', [AdminServiceController::class, 'pengajuanUpdate'])->name('admin.pengajuan.update');
 });

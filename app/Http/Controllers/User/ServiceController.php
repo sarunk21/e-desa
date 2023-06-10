@@ -95,10 +95,10 @@ class ServiceController extends Controller
         $data = $request->validated();
 
         // Upload file to storage.
-        $file_name = $request->file('file_berkas')->store('pengajuan');
+        $file_name = $request->file('file_berkas')->store('pengajuan', 'public');
 
         $data['file_berkas'] = $file_name;
-        $data['original_name_berkas'] = $request->file('file_berkas')->getClientOriginalName();
+        $data['orginal_name_berkas'] = $request->file('file_berkas')->getClientOriginalName();
 
         $pengajuan = SuratPengantar::create($data);
         Notifikasi::create([

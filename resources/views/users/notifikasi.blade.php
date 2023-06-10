@@ -13,13 +13,19 @@
             </div>
             <div class="card-body px-4 pt-4">
                 @forelse ($notifikasi as $item)
-                    <div class="card w-100 mt-3">
-                        <div class="card-body d-flex align-items-center justify-content-around">
-                            <div>
+                    <div class="card w-100 mt-3" style="border-radius: 10px;">
+                        <div class="card-body d-flex align-items-center">
+                            @if ($item->status_notifikasi == 1)
+                                <div class="pr-3 pl-1">
+                                    <div style="width: 15px; height: 15px; border-radius: 50%; background-color: red;"></div>
+                                </div>
+                            @endif
+                            <div class="align-self-center">
+                                <p>{{ $item->created_at }}</p>
                                 <h5 class="card-title">{{ $item->judul_notifikasi }}</h5>
                                 <p class="card-text">{{ $item->isi_notifikasi }}</p>
                             </div>
-                            <div>
+                            <div class="align-self-center ml-auto">
                                 <a href="{{ $item->notifikasi_link }}">Detail</a>
                             </div>
                         </div>

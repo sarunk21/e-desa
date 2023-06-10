@@ -38,16 +38,16 @@ class SuratPengantar extends Model
 
         switch ($this->status_pengajuan) {
             case self::STATUS_WAITING:
-                $status = 'Menunggu Verifikasi';
+                $status = "<span class='badge badge-info'>Menunggu Verifikasi</span>";
                 break;
             case self::STATUS_APPROVED:
-                $status = 'Verifikasi Berhasil';
+                $status = "<span class='badge badge-success'>Verifikasi Berhasil</span>";
                 break;
             case self::STATUS_REJECTED:
-                $status = 'Verifikasi Gagal';
+                $status = "<span class='badge badge-danger'>Verifikasi Gagal</span>";
                 break;
             case self::STATUS_DONE:
-                $status = 'Selesai';
+                $status = "<span class='badge badge-primary'>Selesai</span>";
                 break;
         }
 
