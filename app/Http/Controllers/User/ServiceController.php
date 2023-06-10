@@ -18,7 +18,7 @@ class ServiceController extends Controller
     public function antrian()
     {
         $pelayanan = JenisPelayanan::all();
-        $jumlah_antrian = Antrian::where('created_at', 'like', date('Y-m-d') . '%')->count();
+        $jumlah_antrian = Antrian::where('created_at', 'like', date('Y-m-d') . '%')->count() + 1;
 
         return view('users.service.antrian.antrian', compact('pelayanan', 'jumlah_antrian'));
     }

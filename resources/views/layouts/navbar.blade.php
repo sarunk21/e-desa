@@ -27,7 +27,7 @@
                     </div>
                 </li>
                 <li class="nav-item mr-4">
-                    <a class="nav-link font-weight-bold" href="">Informasi</a>
+                    <a class="nav-link font-weight-bold" href="{{ route('informasi') }}">Informasi</a>
                 </li>
                 <li class="nav-item mr-4">
                     <a class="nav-link font-weight-bold" href="{{ route('wellcome') }}#kontak">Kontak</a>

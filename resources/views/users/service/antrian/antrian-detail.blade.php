@@ -11,6 +11,11 @@
             @csrf
 
             <div class="form-group">
+                <label for="no_antrian" class="mb-3">Nomor Antrian</label>
+                <input type="text" class="form-control form-control-lg rounded-pill text-md" id="no_antrian" name="no_antrian" value="{{ $antrian->no_antrian }}" placeholder="Masukkan nomor antrian anda" readonly>
+            </div>
+
+            <div class="form-group">
                 <label for="nik" class="mb-3">NIK</label>
                 <input type="text" class="form-control form-control-lg rounded-pill text-md" id="nik" name="nik" value="{{ $antrian->user->nik }}" placeholder="Masukkan NIK anda" readonly>
             </div>
