@@ -44,11 +44,28 @@ class AdminServiceController extends Controller
         $pengajuan = SuratPengantar::findOrFail($id);
         $pengajuan->update($data);
 
+        switch ($pengajuan->status_pengajuan) {
+            case SuratPengantar::STATUS_APPROVED:
+                $status = 'Verifikasi Berhasil';
+                break;
+
+            case SuratPengantar::STATUS_REJECTED:
+                $status = 'Verifikasi Gagal';
+                break;
+
+            case SuratPengantar::STATUS_DONE:
+                $status = 'Selesai';
+                break;
+            default:
+                $status = 'Menunggu Verifikasi';
+                break;
+        }
+
         Notifikasi::create([
             'user_id' => $pengajuan->user_id,
             'status_notifikasi' => Notifikasi::STATUS_UNREAD,
-            'judul_notifikasi' => 'Status pengajuan berhasil diubah',
-            'isi_notifikasi' => 'Status pengajuan anda berhasil diubah, silahkan cek status pengajuan anda',
+            'judul_notifikasi' => 'Status pengajuan ' . $status,
+            'isi_notifikasi' => 'Status pengajuan ' . $status . ', silahkan cek detail pengajuan anda',
             'link_notifikasi' => $pengajuan->id,
             'tipe_notifikasi' => Notifikasi::TYPE_PENGAJUAN
         ]);
