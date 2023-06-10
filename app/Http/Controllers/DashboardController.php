@@ -20,8 +20,9 @@ class DashboardController extends Controller
     public  static function notifkasi()
     {
         $notifikasi = Notifikasi::where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->get();
+        $jumlah_notifikasi = Notifikasi::where('user_id', auth()->user()->id)->where('status_notifikasi', Notifikasi::STATUS_UNREAD)->count();
 
-        return view('users.notifikasi', compact('notifikasi'));
+        return view('users.notifikasi', compact('notifikasi', 'jumlah_notifikasi'));
     }
 
     public function dashboardAdmin()

@@ -3,11 +3,11 @@
 @section('title', '| Dashboard')
 
 @section('content')
-    <div class="h-screen position-relative">
+    <div class="h-screen">
 
         @include('layouts.navbar')
 
-        <div class="w-100 h-100 backgroud-desa position-absolute">
+        <div class="w-100 h-100 backgroud-desa">
             <div class="container h-100 d-flex flex-column align-items-center justify-content-center">
                 <div class="text-center mb-5">
                     <h1 class="text-bold mb-4">Selamat Datang, {{ auth()->user()->name ?? 'Pengguna' }}</h1>

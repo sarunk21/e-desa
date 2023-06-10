@@ -18,7 +18,7 @@ class ServiceController extends Controller
     public function antrian()
     {
         $pelayanan = JenisPelayanan::all();
-        $jumlah_antrian = Antrian::where('created_at', date('Y-m-d'))->count();
+        $jumlah_antrian = Antrian::where('created_at', 'like', date('Y-m-d') . '%')->count();
 
         return view('users.service.antrian.antrian', compact('pelayanan', 'jumlah_antrian'));
     }
@@ -45,7 +45,7 @@ class ServiceController extends Controller
         $data = $request->validated();
 
         // Cek apakah sudah penuh
-        $jumlah_antrian = Antrian::where('created_at', date('Y-m-d'))->count();
+        $jumlah_antrian = Antrian::where('created_at', 'like', date('Y-m-d') . '%')->count();
         $data['no_antrian'] = $jumlah_antrian + 1;
 
         if ($jumlah_antrian >= 20) {

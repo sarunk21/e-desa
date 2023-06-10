@@ -26,14 +26,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-university"></i>
-                        <p>
-                            Profile Desa
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="{{ route('admin.desa.index') }}" class="nav-link @if (request()->is('admin/admin-desa*')) active @endif">
                         <i class="nav-icon fas fa-users"></i>
                         <p>

@@ -24,7 +24,7 @@ use App\Http\Controllers\Admin\AdminServiceController;
 
 // Guest
 Route::get('/', [GuestController::class, 'wellcome'])->name('wellcome');
-Route::get('/profile', [GuestController::class, 'profile'])->name('profile');
+Route::get('/informasi', [GuestController::class, 'informasi'])->name('informasi');
 
 // Auth
 Route::get('/login', [AuthController::class, 'login'])->name('login');

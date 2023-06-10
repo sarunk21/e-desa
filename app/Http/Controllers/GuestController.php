@@ -9,8 +9,8 @@ class GuestController extends Controller
         return view('wellcome');
     }
 
-    public function profile()
+    public function informasi()
     {
-        return view('profile');
+        return view('informasi');
     }
 }

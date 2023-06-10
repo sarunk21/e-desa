@@ -16,7 +16,7 @@ class AdminServiceController extends Controller
     public function antrian()
     {
         $antrian = Antrian::where('created_at', 'like', date('Y-m-d') . '%')
-            ->orderBy('created_at', 'desc')->take(20)->get();
+            ->orderBy('created_at', 'asc')->take(20)->get();
 
         return view('admin.layanan.antrian.index', compact('antrian'));
     }
@@ -45,7 +45,7 @@ class AdminServiceController extends Controller
         $pengajuan->update($data);
 
         Notifikasi::create([
-            'user_id' => $data['user_id'],
+            'user_id' => $pengajuan->user_id,
             'status_notifikasi' => Notifikasi::STATUS_UNREAD,
             'judul_notifikasi' => 'Status pengajuan berhasil diubah',
             'isi_notifikasi' => 'Status pengajuan anda berhasil diubah, silahkan cek status pengajuan anda',

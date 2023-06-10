@@ -89,7 +89,7 @@
 
                     <div class="form-group">
                         <label for="jenis_kelamin">Jenis Kelamin</label>
-                        <select class="form-control select2 rounded-lg @if ($errors->has('jenis_kelamin')) is-invalid @endif" id="jenis_kelamin" name="jenis_kelamin">
+                        <select class="form-control rounded-lg @if ($errors->has('jenis_kelamin')) is-invalid @endif" id="jenis_kelamin" name="jenis_kelamin">
                             <option value="" disabled selected>-- Pilih Jenis Kelamin --</option>
                             <option value="L" {{ old('jenis_kelamin') == 'L' ? 'selected' : '' }}>Laki-laki</option>
                             <option value="P" {{ old('jenis_kelamin') == 'P' ? 'selected' : '' }}>Perempuan</option>
@@ -106,6 +106,10 @@
                         <button type="submit" class="btn btn-primary btn-green-pastel px-5 py-2 rounded-pill">Register</button>
                     </div>
                 </form>
+
+                <div class="d-flex justify-content-center mt-3">
+                    <p class="text-center">Sudah punya akun? <a href="{{ route('login') }}">Login</a></p>
+                </div>
             </div>
         </div>
         <div class="col-4">
