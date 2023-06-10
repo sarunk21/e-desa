@@ -12,7 +12,7 @@ class DashboardController extends Controller
 {
     public function dashboardUser()
     {
-        $jumlah_notifikasi = Notifikasi::where('user_id', auth()->user()->id)->where('status_notifikasi', Notifikasi::STATUS_UNREAD)->count();
+        $jumlah_notifikasi = Notifikasi::where('user_id', auth()->user()->id)->where('status_notifikasi', Notifikasi::STATUS_UNREAD)->count() ?? 0;
 
         return view('users.dashboard', compact('jumlah_notifikasi'));
     }
@@ -20,7 +20,7 @@ class DashboardController extends Controller
     public  static function notifkasi()
     {
         $notifikasi = Notifikasi::where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->get();
-        $jumlah_notifikasi = Notifikasi::where('user_id', auth()->user()->id)->where('status_notifikasi', Notifikasi::STATUS_UNREAD)->count();
+        $jumlah_notifikasi = Notifikasi::where('user_id', auth()->user()->id)->where('status_notifikasi', Notifikasi::STATUS_UNREAD)->count() ?? 0;
 
         return view('users.notifikasi', compact('notifikasi', 'jumlah_notifikasi'));
     }
@@ -42,8 +42,8 @@ class DashboardController extends Controller
         }
 
         // Data Dasboard
-        $jumlah_antrian = Antrian::where('created_at', 'like', date('Y-m-d') . '%')->count();
-        $jumlah_pengajuan = SuratPengantar::where('status_pengajuan', SuratPengantar::STATUS_WAITING)->count();
+        $jumlah_antrian = Antrian::where('created_at', 'like', date('Y-m-d') . '%')->count() ?? 0;
+        $jumlah_pengajuan = SuratPengantar::where('status_pengajuan', SuratPengantar::STATUS_WAITING)->count() ?? 0;
 
         return view('admin.dashboard', compact('salam', 'jumlah_antrian', 'jumlah_pengajuan'));
     }
