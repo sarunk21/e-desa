@@ -37,7 +37,7 @@
 
             <div class="form-group">
                 <label for="jenis_pelayanan_id" class="mb-3">Jenis Layanan</label>
-                <select class="form-control form-control-lg rounded-pill text-md @if ($errors->has('jenis_pelayanan_id')) is-invalid @endif" id="jenis_pelayanan_id" name="jenis_pelayanan_id">
+                <select class="form-control select2 form-control-lg rounded-pill text-md @if ($errors->has('jenis_pelayanan_id')) is-invalid @endif" id="jenis_pelayanan_id" name="jenis_pelayanan_id">
                     <option value="" selected disabled>Pilih layanan</option>
                     @foreach ($pelayanan as $item)
                         <option value="{{ $item->id }}">{{ $item->nama_pelayanan }}</option>
