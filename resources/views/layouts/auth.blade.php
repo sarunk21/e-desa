@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
 
     <!-- Favicons -->
     <link rel="icon" href="img/logo.ico" type="image/x-icon" />
@@ -38,6 +41,27 @@
     <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('dist/js/adminlte.js') }}"></script>
+    <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('plugins/inputmask/jquery.inputmask.min.js') }}"></script>
+    <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
+
+    <script>
+        $(function() {
+            $('.select2').select2();
+
+            $('[data-mask]').inputmask();
+
+            $(".email").inputmask({
+                alias: "email"
+            });
+
+            $(".phone-number").inputmask({
+                mask: "9999-9999-9999"
+            });
+        });
+    </script>
+
     @stack('scripts')
 </body>
 

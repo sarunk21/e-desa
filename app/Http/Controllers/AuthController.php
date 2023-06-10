@@ -39,6 +39,7 @@ class AuthController extends Controller
     {
         $data = $request->all();
 
+        $data['phone_number'] = str_replace('-', '', $data['phone_number']);
         $password = Carbon::parse($data['tanggal_lahir'])->format('dmY');
         $data['password'] = Hash::make($password);
 

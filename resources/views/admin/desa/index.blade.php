@@ -38,7 +38,8 @@
 
                             <div class="form-group">
                                 <label for="nik" class="mb-3">NIK</label>
-                                <input type="text" class="form-control rounded-lg @if ($errors->has('nik')) is-invalid @endif" id="nik" name="nik" value="{{ old('nik') }}" placeholder="Masukkan NIK">
+                                <input type="text" class="form-control rounded-lg @if ($errors->has('nik')) is-invalid @endif" id="nik" name="nik" value="{{ old('nik') }}" placeholder="Masukkan NIK"
+                                    data-inputmask='"mask": "9999999999999999"' data-mask>
                                 @if ($errors->has('nik'))
                                     <div class="invalid-feedback">
                                         {{ $errors->first('nik') }}
@@ -58,7 +59,7 @@
 
                             <div class="form-group">
                                 <label for="email" class="mb-3">Email</label>
-                                <input type="email" class="form-control rounded-lg @if ($errors->has('email')) is-invalid @endif" id="email" name="email" value="{{ old('email') }}" placeholder="Masukkan Email">
+                                <input type="text" class="form-control rounded-lg email @if ($errors->has('email')) is-invalid @endif" id="email" name="email" value="{{ old('email') }}" placeholder="Masukkan Email">
                                 @if ($errors->has('email'))
                                     <div class="invalid-feedback">
                                         {{ $errors->first('email') }}
@@ -68,7 +69,7 @@
 
                             <div class="form-group">
                                 <label for="phone_number" class="mb-3">No. HP</label>
-                                <input type="text" class="form-control rounded-lg @if ($errors->has('phone_number')) is-invalid @endif" id="phone_number" name="phone_number" value="{{ old('phone_number') }}" placeholder="Masukkan No. HP">
+                                <input type="text" class="form-control rounded-lg phone-number @if ($errors->has('phone_number')) is-invalid @endif" id="phone_number" name="phone_number" value="{{ old('phone_number') }}" placeholder="Masukkan No. HP">
                                 @if ($errors->has('phone_number'))
                                     <div class="invalid-feedback">
                                         {{ $errors->first('phone_number') }}
@@ -98,7 +99,7 @@
 
                             <div class="form-group">
                                 <label for="jenis_kelamin">Jenis Kelamin</label>
-                                <select class="form-control rounded-lg @if ($errors->has('jenis_kelamin')) is-invalid @endif" id="jenis_kelamin" name="jenis_kelamin">
+                                <select class="form-control select2 rounded-lg @if ($errors->has('jenis_kelamin')) is-invalid @endif" id="jenis_kelamin" name="jenis_kelamin">
                                     <option value="" disabled selected>-- Pilih Jenis Kelamin --</option>
                                     <option value="L" {{ old('jenis_kelamin') == 'L' ? 'selected' : '' }}>Laki-laki</option>
                                     <option value="P" {{ old('jenis_kelamin') == 'P' ? 'selected' : '' }}>Perempuan</option>

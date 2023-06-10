@@ -33,7 +33,7 @@
                     <div class="form-group">
                         <label for="nik" class="mb-4">NIK</label>
                         <input type="text" class="form-control rounded-pill py-4 px-3 @if ($errors->has('nik')) is-invalid @endif" id="nik" name="nik" value="{{ old('nik') }}" autofocus
-                            placeholder="Masukkan NIK anda yang telah terdaftar!">
+                            placeholder="Masukkan NIK anda yang telah terdaftar!" data-inputmask='"mask": "9999999999999999"' data-mask>
                         @if ($errors->has('nik'))
                             <div class="invalid-feedback">
                                 {{ $errors->first('nik') }}

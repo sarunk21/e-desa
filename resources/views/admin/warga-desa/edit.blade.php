@@ -33,7 +33,7 @@
 
                             <div class="form-group">
                                 <label for="nik" class="mb-3">NIK</label>
-                                <input type="text" class="form-control rounded-lg @if ($errors->has('nik')) is-invalid @endif" id="nik" name="nik" value="{{ $warga_desa->nik }}">
+                                <input type="text" class="form-control rounded-lg @if ($errors->has('nik')) is-invalid @endif" id="nik" name="nik" value="{{ $warga_desa->nik }}" data-inputmask='"mask": "9999999999999999"' data-mask>
                                 @if ($errors->has('nik'))
                                     <div class="invalid-feedback">
                                         {{ $errors->first('nik') }}
@@ -63,7 +63,7 @@
 
                             <div class="form-group">
                                 <label for="phone_number" class="mb-3">No. HP</label>
-                                <input type="text" class="form-control rounded-lg @if ($errors->has('phone_number')) is-invalid @endif" id="phone_number" name="phone_number" value="{{ $warga_desa->phone_number }}">
+                                <input type="text" class="form-control rounded-lg phone-number @if ($errors->has('phone_number')) is-invalid @endif" id="phone_number" name="phone_number" value="{{ $warga_desa->phone_number }}">
                                 @if ($errors->has('phone_number'))
                                     <div class="invalid-feedback">
                                         {{ $errors->first('phone_number') }}
