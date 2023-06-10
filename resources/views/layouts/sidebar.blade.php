@@ -18,7 +18,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-header">Admin</li>
                 <li class="nav-item">
-                    <a href="{{ route('dashboard.admin') }}" class="nav-link @if(request()->is('admin/dashboard*')) active @endif">
+                    <a href="{{ route('dashboard.admin') }}" class="nav-link @if (request()->is('admin/dashboard*')) active @endif">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -34,10 +34,18 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.desa.index') }}" class="nav-link @if(request()->is('admin/admin-desa*')) active @endif">
+                    <a href="{{ route('admin.desa.index') }}" class="nav-link @if (request()->is('admin/admin-desa*')) active @endif">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Admin Desa
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('warga.desa.index') }}" class="nav-link @if (request()->is('admin/warga-desa*')) active @endif">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Warga Desa
                         </p>
                     </a>
                 </li>
@@ -51,7 +59,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('admin.antrian.index') }}" class="nav-link @if (request()->is('admin/antrian*')) active @endif">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Antrian Pelayanan

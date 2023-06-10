@@ -38,7 +38,7 @@
 
                             <div class="form-group">
                                 <label for="nik" class="mb-3">NIK</label>
-                                <input type="text" class="form-control rounded-lg @if ($errors->has('nik')) is-invalid @endif" id="nik" name="nik" value="{{ old('nik') }}">
+                                <input type="text" class="form-control rounded-lg @if ($errors->has('nik')) is-invalid @endif" id="nik" name="nik" value="{{ old('nik') }}" placeholder="Masukkan NIK">
                                 @if ($errors->has('nik'))
                                     <div class="invalid-feedback">
                                         {{ $errors->first('nik') }}
@@ -48,7 +48,7 @@
 
                             <div class="form-group">
                                 <label for="name" class="mb-3">Nama</label>
-                                <input type="text" class="form-control rounded-lg @if ($errors->has('name')) is-invalid @endif" id="name" name="name" value="{{ old('name') }}">
+                                <input type="text" class="form-control rounded-lg @if ($errors->has('name')) is-invalid @endif" id="name" name="name" value="{{ old('name') }}" placeholder="Masukkan Nama">
                                 @if ($errors->has('name'))
                                     <div class="invalid-feedback">
                                         {{ $errors->first('name') }}
@@ -58,7 +58,7 @@
 
                             <div class="form-group">
                                 <label for="email" class="mb-3">Email</label>
-                                <input type="email" class="form-control rounded-lg @if ($errors->has('email')) is-invalid @endif" id="email" name="email" value="{{ old('email') }}">
+                                <input type="email" class="form-control rounded-lg @if ($errors->has('email')) is-invalid @endif" id="email" name="email" value="{{ old('email') }}" placeholder="Masukkan Email">
                                 @if ($errors->has('email'))
                                     <div class="invalid-feedback">
                                         {{ $errors->first('email') }}
@@ -68,7 +68,7 @@
 
                             <div class="form-group">
                                 <label for="phone_number" class="mb-3">No. HP</label>
-                                <input type="text" class="form-control rounded-lg @if ($errors->has('phone_number')) is-invalid @endif" id="phone_number" name="phone_number" value="{{ old('phone_number') }}">
+                                <input type="text" class="form-control rounded-lg @if ($errors->has('phone_number')) is-invalid @endif" id="phone_number" name="phone_number" value="{{ old('phone_number') }}" placeholder="Masukkan No. HP">
                                 @if ($errors->has('phone_number'))
                                     <div class="invalid-feedback">
                                         {{ $errors->first('phone_number') }}
@@ -78,7 +78,7 @@
 
                             <div class="form-group">
                                 <label for="alamat" class="mb-3">Alamat</label>
-                                <textarea class="form-control rounded-lg @if ($errors->has('alamat')) is-invalid @endif" id="alamat" name="alamat">{{ old('alamat') }}</textarea>
+                                <textarea class="form-control rounded-lg @if ($errors->has('alamat')) is-invalid @endif" id="alamat" name="alamat" placeholder="Masukkan Alamat">{{ old('alamat') }}</textarea>
                                 @if ($errors->has('alamat'))
                                     <div class="invalid-feedback">
                                         {{ $errors->first('alamat') }}
@@ -121,7 +121,7 @@
                 <div class="card">
                     <div class="card-header border-0">
                         <div class="d-flex justify-content-between">
-                            <h3 class="card-title">Dashboard</h3>
+                            <h3 class="card-title">List Admin Desa</h3>
                         </div>
                     </div>
                     <div class="card-body">

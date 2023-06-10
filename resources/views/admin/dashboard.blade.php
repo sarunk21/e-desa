@@ -13,26 +13,26 @@
         <div class="col-lg-4 col-6">
             <div class="small-box bg-info">
                 <div class="inner">
-                    <h3>15</h3>
+                    <h3>{{ $jumlah_pengajuan }}</h3>
 
                     <p>Pengajuan Surat Pengantar</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-envelope"></i>
                 </div>
-                <a href="#" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <div class="col-lg-4 col-6">
             <div class="small-box bg-success">
                 <div class="inner">
-                    <h3>5</h3>
+                    <h3>{{ $jumlah_antrian }}</h3>
                     <p>Antrian Pelayanan</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-users"></i>
                 </div>
-                <a href="#" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('admin.antrian.index') }}" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <div class="col-lg-4 col-12">

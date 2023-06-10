@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Admin;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 use App\Http\Requests\Auth\RegisterRequest;
-use App\Http\Requests\Admin\Admin\UpdateAdminDesaRequest;
+use App\Http\Requests\Admin\UpdateAdminDesaRequest;
 
 class AdminDesaController extends Controller
 {
@@ -19,7 +19,7 @@ class AdminDesaController extends Controller
         $admin_desa = User::where('user_type', User::USER_TYPE_ADMIN)
             ->orderBy('created_at', 'desc')->paginate(10);
 
-        return view('admin.admin.desa.index', compact('admin_desa'));
+        return view('admin.desa.index', compact('admin_desa'));
     }
 
     public function store(RegisterRequest $request)
@@ -39,14 +39,14 @@ class AdminDesaController extends Controller
     {
         $admin_desa = User::findOrFail($id);
 
-        return view('admin.admin.desa.show', compact('admin_desa'));
+        return view('admin.desa.show', compact('admin_desa'));
     }
 
     public function edit($id)
     {
         $admin_desa = User::findOrFail($id);
 
-        return view('admin.admin.desa.edit', compact('admin_desa'));
+        return view('admin.desa.edit', compact('admin_desa'));
     }
 
     public function update(UpdateAdminDesaRequest $request, $id)

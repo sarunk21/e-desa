@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+
+use App\Models\Antrian;
 use App\Models\Notifikasi;
+use App\Models\SuratPengantar;
 
 class DashboardController extends Controller
 {
@@ -37,6 +40,10 @@ class DashboardController extends Controller
             $salam = 'Selamat Malam';
         }
 
-        return view('admin.dashboard', compact('salam'));
+        // Data Dasboard
+        $jumlah_antrian = Antrian::where('created_at', 'like', date('Y-m-d') . '%')->count();
+        $jumlah_pengajuan = SuratPengantar::where('status_pengajuan', SuratPengantar::STATUS_WAITING)->count();
+
+        return view('admin.dashboard', compact('salam', 'jumlah_antrian', 'jumlah_pengajuan'));
     }
 }

@@ -5,12 +5,12 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 
 use App\Models\Antrian;
+use App\Models\Notifikasi;
 use App\Models\SuratPengantar;
 use App\Models\JenisPelayanan;
 
 use App\Http\Requests\User\Antrian\StoreAntrianRequest;
 use App\Http\Requests\User\Pengajuan\StorePengajuanRequest;
-use App\Models\Notifikasi;
 
 class ServiceController extends Controller
 {
