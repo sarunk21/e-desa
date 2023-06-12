@@ -59,7 +59,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('admin.pengaduan.index') }}" class="nav-link @if (request()->is('admin/pengaduan*')) active @endif"
                         <i class="nav-icon fas fa-flag"></i>
                         <p>
                             Aduan Masyarakat

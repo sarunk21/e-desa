@@ -20,7 +20,7 @@
                 <div class="icon">
                     <i class="fa fa-envelope"></i>
                 </div>
-                <a href="" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('admin.pengajuan.index') }}" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <div class="col-lg-4 col-6">
@@ -39,14 +39,14 @@
             <!-- small box -->
             <div class="small-box bg-warning">
                 <div class="inner">
-                    <h3>44</h3>
+                    <h3>{{ $jumlah_pengaduan }}</h3>
 
                     <p>Aduan Masyarakat</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-flag"></i>
                 </div>
-                <a href="#" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('admin.pengaduan.index') }}" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>

@@ -53,15 +53,11 @@
                         <a href="{{ route('wellcome') }}" class="btn btn-outline-secondary px-5 py-2 rounded-pill mr-3">Beranda</a>
                         <button type="submit" class="btn btn-primary btn-green-pastel px-5 py-2 rounded-pill">Login</button>
                     </div>
-
-                    <div class="d-flex justify-content-center mt-4">
-                        <a href="{{ route('register') }}">Belum punya akun? Daftar</a>
-                    </div>
                 </form>
             </div>
         </div>
         <div class="col-4">
-            <img src="{{ asset('img/banner-login.png') }}" alt="logo" class="img-fluid">
+            <img src="{{ asset('img/banner-login.webp') }}" alt="logo" class="img-fluid">
         </div>
     </div>
 @endsection

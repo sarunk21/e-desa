@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use App\Models\Antrian;
+use App\Models\Pengaduan;
 use App\Models\Notifikasi;
 use App\Models\SuratPengantar;
 
@@ -71,5 +72,20 @@ class AdminServiceController extends Controller
         ]);
 
         return redirect()->route('admin.pengajuan.index')->with('success', 'Status pengajuan berhasil diubah!');
+    }
+
+    // Pengaduan
+    public function pengaduan()
+    {
+        $pengaduan = Pengaduan::orderBy('created_at', 'desc')->paginate(20);
+
+        return view('admin.layanan.pengaduan.index', compact('pengaduan'));
+    }
+
+    public function pengaduanDetail($id)
+    {
+        $pengaduan = Pengaduan::findOrFail($id);
+
+        return view('admin.layanan.pengaduan.show', compact('pengaduan'));
     }
 }

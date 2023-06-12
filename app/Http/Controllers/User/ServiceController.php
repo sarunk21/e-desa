@@ -19,7 +19,8 @@ class ServiceController extends Controller
     // Antrian
     public function antrian()
     {
-        $pelayanan = JenisPelayanan::where('tipe_layanan', JenisPelayanan::TipeLayananAntrian)->get();
+        $pelayanan = JenisPelayanan::where('tipe_layanan', JenisPelayanan::TipeLayananAntrian)
+            ->orWhere('tipe_layanan', null)->get();
         $jumlah_antrian = Antrian::where('created_at', 'like', date('Y-m-d') . '%')->count() + 1;
 
         return view('users.service.antrian.antrian', compact('pelayanan', 'jumlah_antrian'));
@@ -70,7 +71,8 @@ class ServiceController extends Controller
     // Pengajuan
     public function pengajuan()
     {
-        $pelayanan = JenisPelayanan::where('tipe_layanan', JenisPelayanan::TipeLayananPengajuan)->get();
+        $pelayanan = JenisPelayanan::where('tipe_layanan', JenisPelayanan::TipeLayananPengajuan)
+            ->orWhere('tipe_layanan', null)->get();
 
         return view('users.service.pengajuan.pengajuan', compact('pelayanan'));
     }

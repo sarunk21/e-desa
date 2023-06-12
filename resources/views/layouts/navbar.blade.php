@@ -35,13 +35,18 @@
                 @if (Auth::check())
                     <li class="nav-item dropdown mr-4">
                         <a class="nav-link font-weight-bold dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                            {{ auth()->user()->name }} <span class="badge badge-danger">{{ $jumlah_notifikasi }}</span>
+                            {{ auth()->user()->name }}
+                            @if (Auth::user()->user_type != 1)
+                                <span class="badge badge-danger">{{ $jumlah_notifikasi }}</span>
+                            @endif
                         </a>
                         <div class="dropdown-menu">
                             @if (Request::is('dashboard'))
                                 <a class="dropdown-item" href="{{ route('notifikasi') }}">Notifikasi <span class="badge badge-danger">{{ $jumlah_notifikasi }}</span></a>
                             @else
-                                <a class="dropdown-item" href="{{ route('notifikasi') }}">Notifikasi <span class="badge badge-danger">{{ $jumlah_notifikasi }}</span></a>
+                                @if (Auth::user()->user_type != 1)
+                                    <a class="dropdown-item" href="{{ route('notifikasi') }}">Notifikasi <span class="badge badge-danger">{{ $jumlah_notifikasi }}</span></a>
+                                @endif
                                 <a class="dropdown-item" href="{{ route('dashboard.user') }}">Dashboard</a>
                             @endif
                             <form action="{{ route('logout') }}" method="POST">

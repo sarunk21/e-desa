@@ -44,7 +44,7 @@
         }
 
         .backgroud-desa {
-            background-image: url("{{ asset('img/banner-user-dashboard.png') }}");
+            background-image: url("{{ asset('img/banner-user-dashboard.webp') }}");
             background-size: cover;
             top: 0;
             z-index: 1;

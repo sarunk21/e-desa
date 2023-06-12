@@ -113,7 +113,7 @@
             </div>
         </div>
         <div class="col-4">
-            <img src="{{ asset('img/banner-login.png') }}" alt="logo" class="img-fluid">
+            <img src="{{ asset('img/banner-login.webp') }}" alt="logo" class="img-fluid">
         </div>
     </div>
 @endsection
