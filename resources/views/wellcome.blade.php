@@ -13,7 +13,7 @@
                     </div>
                 </div>
                 <div class="col-5">
-                    <img src="img/banner.png" alt="Banner Desa">
+                    <img src="{{ asset('img/banner.webp') }}" alt="Banner Desa" class="w-100">
                 </div>
             </div>
         </div>

@@ -47,6 +47,11 @@ Route::middleware(['auth', 'user'])->group(function () {
     Route::get('/pengajuan', [ServiceController::class, 'pengajuan'])->name('pengajuan');
     Route::get('/pengajuan/{id}', [ServiceController::class, 'pengajuanDetail'])->name('pengajuan.detail');
     Route::post('/pengajuan', [ServiceController::class, 'pengajuanStore'])->name('pengajuan.store');
+
+    // Pengaduan
+    Route::get('/pengaduan', [ServiceController::class, 'pengaduan'])->name('pengaduan');
+    Route::get('/pengaduan/{id}', [ServiceController::class, 'pengaduanDetail'])->name('pengaduan.detail');
+    Route::post('/pengaduan', [ServiceController::class, 'pengaduanStore'])->name('pengaduan.store');
 });
 
 // Admin
@@ -77,4 +82,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/pengajuan', [AdminServiceController::class, 'pengajuan'])->name('admin.pengajuan.index');
     Route::get('/pengajuan/{id}', [AdminServiceController::class, 'pengajuanDetail'])->name('admin.pengajuan.show');
     Route::put('/pengajuan/{id}', [AdminServiceController::class, 'pengajuanUpdate'])->name('admin.pengajuan.update');
+
+    // --- Pengaduan
+    Route::get('/pengaduan', [AdminServiceController::class, 'pengaduan'])->name('admin.pengaduan.index');
+    Route::get('/pengaduan/{id}', [AdminServiceController::class, 'pengaduanDetail'])->name('admin.pengaduan.show');
+    Route::put('/pengaduan/{id}', [AdminServiceController::class, 'pengaduanUpdate'])->name('admin.pengaduan.update');
 });

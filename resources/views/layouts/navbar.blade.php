@@ -41,6 +41,7 @@
                             @if (Request::is('dashboard'))
                                 <a class="dropdown-item" href="{{ route('notifikasi') }}">Notifikasi <span class="badge badge-danger">{{ $jumlah_notifikasi }}</span></a>
                             @else
+                                <a class="dropdown-item" href="{{ route('notifikasi') }}">Notifikasi <span class="badge badge-danger">{{ $jumlah_notifikasi }}</span></a>
                                 <a class="dropdown-item" href="{{ route('dashboard.user') }}">Dashboard</a>
                             @endif
                             <form action="{{ route('logout') }}" method="POST">

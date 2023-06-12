@@ -9,8 +9,11 @@ class JenisPelayanan extends Model
     protected $table = 'jenis_pelayanan';
 
     protected $fillable = [
-        'nama_pelayanan'
+        'nama_pelayanan', 'tipe_layanan'
     ];
+
+    const TipeLayananAntrian = 1;
+    const TipeLayananPengajuan = 2;
 
     public function suratPengantar()
     {

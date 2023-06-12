@@ -7,7 +7,7 @@
 @section('content')
 
     <div class="p-5">
-        <h3 class="mb-4 text-center font-weight-bold">Kuota layanan hari ini <b>{{ $jumlah_antrian }}</b> dari <b>20</b></h3>
+        <h3 class="mb-4 text-center font-weight-bold">Urutan antrian <b>{{ $jumlah_antrian }}</b> dari <b>20</b></h3>
 
         @if (session('error'))
             <div class="alert alert-danger alert-dismissible fade show" role="alert">

@@ -22,7 +22,7 @@
                         <i class="fa fa-users fa-6x"></i>
                         <p class="text-lg mt-4">Ambil Antrian Pelayanan</p>
                     </a>
-                    <a class="layanan">
+                    <a class="layanan" href="{{ route('pengaduan') }}">
                         <i class="fa fa-chalkboard-teacher fa-6x"></i>
                         <p class="text-lg mt-4">Aduan Masyarakat Desa</p>
                     </a>
