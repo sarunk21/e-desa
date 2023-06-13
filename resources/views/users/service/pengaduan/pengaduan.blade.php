@@ -15,7 +15,7 @@
 
             <div class="form-group">
                 <label for="nama" class="mb-3">Isi Aduan</label>
-                <textarea name="isi_pengaduan" id="isi_pengaduan" class="form-control form-control-lg text-md @error('isi_pengaduan') is-invalid @enderror" rows="5" placeholder="Masukkan isi pengaduan anda" readonly>{{ $aduan->isi_pengaduan }}</textarea>
+                <textarea name="isi_pengaduan" id="isi_pengaduan" class="form-control form-control-lg text-md @error('isi_pengaduan') is-invalid @enderror" rows="5" placeholder="Masukkan isi pengaduan anda">{{ old('isi_pengaduan') }}</textarea>
             </div>
 
             <div class="d-flex w-100 justify-content-end mt-5">

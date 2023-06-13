@@ -23,7 +23,7 @@
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{ route('antrian') }}">Pengambilan Antrian</a>
                         <a class="dropdown-item" href="{{ route('pengajuan') }}">Pengajuan Surat Pengantar</a>
-                        <a class="dropdown-item" href="#">Aduan Masyarakat</a>
+                        <a class="dropdown-item" href="{{ route('pengaduan') }}">Aduan Masyarakat</a>
                     </div>
                 </li>
                 <li class="nav-item mr-4">
