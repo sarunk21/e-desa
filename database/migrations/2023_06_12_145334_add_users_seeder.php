@@ -31,7 +31,7 @@ return new class extends Migration
                 'jenis_kelamin' => 'L',
                 'alamat' => 'Jl. Warga 1',
                 'email' => 'warga1@mail.com',
-                'phone_number' => '081234567890',
+                'phone_number' => '081234567891',
                 'password' => bcrypt('01012000'),
                 'user_type' => 2,
                 'created_at' => now(),
