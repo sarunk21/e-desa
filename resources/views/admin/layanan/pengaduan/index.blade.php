@@ -35,7 +35,7 @@
                                     @forelse ($pengaduan as $item)
                                         <tr>
                                             <td>{{ $item->created_at }}</td>
-                                            <td>{{ $item->isi_pengaduan }}</td>
+                                            <td class="limit">{{ $item->isi_pengaduan }}</td>
                                             <td>
                                                 <a href="{{ route('admin.pengaduan.show', $item->id) }}" class="btn btn-info btn-sm">Detail</a>
                                             </td>
@@ -56,3 +56,16 @@
 
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $(function() {
+            $(".limit").each(function(i) {
+                len = $(this).text().length;
+                if (len > 80) {
+                    $(this).text($(this).text().substr(0, 80) + '...');
+                }
+            });
+        });
+    </script>
+@endpush
