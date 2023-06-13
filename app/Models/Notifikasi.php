@@ -38,5 +38,6 @@ class Notifikasi extends Model
     {
         if ($this->tipe_notifikasi == self::TYPE_ANTRIAN) return route('antrian.detail', ['id' => $this->link_notifikasi, 'is_read' => 2]);
         if ($this->tipe_notifikasi == self::TYPE_PENGAJUAN) return route('pengajuan.detail', ['id' => $this->link_notifikasi, 'is_read' => 2]);
+        if ($this->tipe_notifikasi == self::TYPE_PENGADUAN) return route('pengaduan.detail', ['id' => $this->link_notifikasi, 'is_read' => 2]);
     }
 }

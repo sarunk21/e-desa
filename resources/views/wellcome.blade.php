@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div class="w-screen py-5" style="background-color: #F6F6F6" id="informasi">
+    <div class="w-screen py-5" style="background-color: #F6F6F6" id="profile">
         <h3 class="px-5 text-bold">Visi & Misi</h3>
         <div class="container my-5 px-5">
             <div class="visi d-flex flex-column align-items-center justify-content-center">

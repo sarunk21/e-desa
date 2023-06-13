@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="d-flex w-100 justify-content-center mt-5">
-                        <a href="{{ route('wellcome') }}" class="btn btn-outline-secondary px-5 py-2 rounded-pill mr-3">Beranda</a>
+                        <a href="{{ route('wellcome') }}" class="btn btn-outline-secondary px-5 py-2 rounded-pill mr-3">Halaman Utama</a>
                         <button type="submit" class="btn btn-primary btn-green-pastel px-5 py-2 rounded-pill">Login</button>
                     </div>
                 </form>

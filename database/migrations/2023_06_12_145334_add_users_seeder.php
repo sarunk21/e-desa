@@ -23,6 +23,19 @@ return new class extends Migration
                 'user_type' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
+            ],
+            [
+                'nik' => '0987654321123456',
+                'name' => 'Warga 1',
+                'tanggal_lahir' => '2000-01-01',
+                'jenis_kelamin' => 'L',
+                'alamat' => 'Jl. Warga 1',
+                'email' => 'warga1@mail.com',
+                'phone_number' => '081234567890',
+                'password' => bcrypt('01012000'),
+                'user_type' => 2,
+                'created_at' => now(),
+                'updated_at' => now()
             ]
         ];
 
@@ -35,5 +48,6 @@ return new class extends Migration
     public function down(): void
     {
         DB::table('users')->where('user_type', 1)->delete();
+        DB::table('users')->where('user_type', 2)->delete();
     }
 };

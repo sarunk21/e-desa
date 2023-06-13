@@ -14,7 +14,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="color: #000000;">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item mr-4">
-                    <a class="nav-link font-weight-bold" href="{{ route('wellcome') }}#informasi">Profile Desa</a>
+                    <a class="nav-link font-weight-bold" href="{{ route('wellcome') }}#profile">Profile Desa</a>
                 </li>
                 <li class="nav-item dropdown mr-4">
                     <a class="nav-link font-weight-bold dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
