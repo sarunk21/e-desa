@@ -55,7 +55,9 @@
                             <div class="form-group">
                                 <label for="file_berkas" class="mb-3">Upload File Pendukung</label>
                                 <div class="w-100 px-4 py-3 d-flex" style="background-color: #e9ecef; border: 1px solid #ced4da; border-radius: 15px;">
-                                    <img src="{{ asset('storage/' . $pengajuan->file_berkas) }}" alt="Berkas Pendukung" class="img-fluid" style="height: 150px; border-radius: 15px; object-fit: cover;">
+                                    <a href="#" id="pop">
+                                        <img id="imageresource" src="{{ asset('storage/' . $pengajuan->file_berkas) }}" alt="Berkas Pendukung" class="img-fluid" style="height: 150px; border-radius: 15px; object-fit: cover;">
+                                    </a>
                                 </div>
                             </div>
 
@@ -79,4 +81,32 @@
 
     </div>
 
+    <div class="modal" tabindex="-1" id="imagemodal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Image Detail</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="" id="imagepreview" class="mx-auto" style="max-width: 800px;">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
+
+@push('scripts')
+    <script>
+        $("#pop").on("click", function() {
+            $('#imagepreview').attr('src', $('#imageresource').attr('src'));
+            $('#imagemodal').modal('show');
+        });
+    </script>
+@endpush
